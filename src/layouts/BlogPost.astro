@@ -2,6 +2,7 @@
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import styles from "./BlogPost.module.scss";
 
 export interface Props {
   content: {
@@ -9,7 +10,11 @@ export interface Props {
     description: string;
     pubDate?: string;
     updatedDate?: string;
-    heroImage?: string;
+    heroImage?: {
+      src: string;
+      alt: string;
+      shadow?: string;
+    };
   };
 }
 
@@ -21,31 +26,31 @@ const {
 <html lang="en">
   <head>
     <BaseHead title={title} description={description} />
-    <style>
-      .title {
-        font-size: 2em;
-        margin: 0.25em 0 0;
-      }
-      .subTitle {
-        font-size: 14px;
-      }
-      hr {
-        margin: 1rem 0;
-        border-color: hsl(33, 94%, 94%);
-      }
-    </style>
+    <style
+      define:vars={{
+        shadow: heroImage?.shadow,
+      }}
+    ></style>
   </head>
-
   <body>
     <Header />
     <main>
       <article>
-        {heroImage && <img width={720} height={360} src={heroImage} alt="" />}
-        <h1 class="title">{title}</h1>
-        {pubDate && <time class="subTitle">{pubDate}</time>}
+        {
+          heroImage && (
+            <img
+              class={styles.heroImage}
+              src={heroImage.src}
+              alt={heroImage.alt}
+            />
+            // {heroImage.sub && <p class={styles.heroImageSub}>{heroImage.sub}</p>}
+          )
+        }
+        <h1 class={styles.title}>{title}</h1>
+        {pubDate && <time class={styles.subTitle}>Posted on {pubDate}</time>}
         {
           updatedDate && (
-            <div class="subTitle">
+            <div class={styles.subTitle}>
               Last updated on <time>{updatedDate}</time>
             </div>
           )

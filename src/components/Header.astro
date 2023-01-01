@@ -1,28 +1,37 @@
 ---
 import HeaderLink from "./HeaderLink.astro";
-import { SITE_TITLE } from "../config";
-import Logo from "/public/Logo.svg";
+import { Logo } from "../components/Logo";
+import { NavMobile } from "./NavMobile";
+import { navLinks } from "./navLinks";
+import nav from "./Nav.module.scss";
 ---
 
 <header>
-  <img src={Logo} alt="Piotr Najda" />
-  <nav>
-    <HeaderLink href="/">Home</HeaderLink>
-    <HeaderLink href="/blog">Blog</HeaderLink>
-    <HeaderLink href="/about">About</HeaderLink>
-    <HeaderLink href="https://twitter.com/piotrnaida" target="_blank"
-      >Twitter</HeaderLink
-    >
-    <HeaderLink href="https://github.com/piotrnajda3000" target="_blank"
-      >GitHub</HeaderLink
-    >
+  <nav class={nav.desktop}>
+    <Logo />
+    <div class={nav.links}>
+      {navLinks.map((link) => <HeaderLink {...link} />)}
+    </div>
   </nav>
+  <NavMobile client:load>
+    {navLinks.map((link) => <HeaderLink {...link} />)}
+  </NavMobile>
 </header>
+
 <style>
   header {
-    margin: 0em 0 2em;
   }
-  h2 {
-    margin: 0.5em 0;
+
+  @media (max-width: 479px) {
+    header.open {
+      position: sticky;
+      top: 0;
+    }
   }
 </style>
+
+<script>
+  document.querySelector("#nav-toggle")!.addEventListener("click", () => {
+    document.querySelector("header")!.classList.toggle("open");
+  });
+</script>
