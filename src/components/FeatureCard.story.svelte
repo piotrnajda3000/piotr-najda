@@ -1,32 +1,29 @@
-<!-- https://histoire.dev/guide/svelte3/stories.html -->
 <!-- https://histoire.dev/guide/svelte3/controls.html -->
 <script>
 	import FeatureCard from './FeatureCard.svelte';
 	export let Hst;
-  let prefixString = "Welcome to "
+	let prefixString = 'Welcome to ';
 </script>
 
+<!-- https://histoire.dev/guide/svelte3/stories.html -->
+
 <Hst.Story title="FeatureCard" layout={{ type: 'grid', width: '100%' }}>
-  <svelte:fragment slot="controls">
-    <Hst.Text bind:value={prefixString} title="prefixString" />
-  </svelte:fragment>
+	<svelte:fragment slot="controls">
+		<Hst.Text bind:value={prefixString} title="prefixString" />
+	</svelte:fragment>
 	<Hst.Variant title="group usage">
 		<section class="mb-16 w-full">
-			<h3 class="mb-6 text-2xl font-bold tracking-tight text-black dark:text-white md:text-4xl">
-				Featured Posts
-			</h3>
+			<h3 class="mb-6 text-2xl font-bold tracking-tight   md:text-4xl">Featured Posts</h3>
 			<div class="flex flex-col gap-6 md:flex-row">
-				<FeatureCard title="Welcome to swyxkit 2022!" href="/welcome" stringData="Jan 2022" />
+				<FeatureCard title="Welcome to swyxkit 2022!" href="/" stringData="Jan 2022" />
 				<FeatureCard
 					title="Moving to a GitHub CMS"
 					href="/moving-to-a-github-cms"
 					stringData="Jan 2022"
 				/>
-				<FeatureCard title="HTML Ipsum demo" href="/moo" stringData="Jan 2022" />
+				<FeatureCard title="HTML Ipsum demo" href="/" stringData="Jan 2022" />
 			</div>
-			<a
-				class="mt-8 flex h-6 rounded-lg leading-7 text-gray-600 transition-all dark:text-gray-400 dark:hover:text-gray-200"
-				href="/blog"
+			<a class="mt-8 flex h-6 rounded-lg leading-7 transition-all " href="/blog"
 				>See latest posts<svg
 					xmlns="http://www.w3.org/2000/svg"
 					fill="none"
@@ -45,14 +42,13 @@
 	</Hst.Variant>
 
 	<Hst.Variant title="Fast">
-    <div class="flex flex-col gap-6 md:flex-row">
-      <FeatureCard title={prefixString + " Fast 2022!"} href="/welcome" stringData="Jan 2022" />
-    </div>
+		<div class="flex flex-col gap-6 md:flex-row">
+			<FeatureCard title={prefixString + ' Fast 2022!'} href="/welcome" stringData="Jan 2022" />
+		</div>
 	</Hst.Variant>
 	<Hst.Variant title="Slow">
-    <div class="flex flex-col gap-6 md:flex-row">
-      <FeatureCard title={prefixString + " Slow 2022!"} href="/welcome" stringData="Jan 2022" />
-    </div>
+		<div class="flex flex-col gap-6 md:flex-row">
+			<FeatureCard title={prefixString + ' Slow 2022!'} href="/welcome" stringData="Jan 2022" />
+		</div>
 	</Hst.Variant>
-
 </Hst.Story>

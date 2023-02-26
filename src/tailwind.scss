@@ -1,0 +1,168 @@
+@font-face {
+	font-family: 'JetBrains Mono';
+	font-style: normal;
+	font-weight: normal;
+	src: url('/JetBrainsMono-Regular.ttf') format('truetype');
+}
+@mixin jetbrains() {
+	font-family: 'JetBrains Mono', monospace;
+	font-size: 13px;
+	font-weight: 400;
+	line-height: 1.2;
+}
+
+@tailwind base;
+
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+	height: 100%;
+}
+
+body {
+	font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
+		Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	margin: auto;
+	text-align: left;
+	max-width: 611px;
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+	line-height: 1.5;
+	@apply px-5;
+}
+a {
+	color: inherit;
+	text-decoration: underline;
+}
+
+textarea {
+	width: 100%;
+	font-size: 16px;
+}
+input {
+	font-size: 16px;
+}
+content {
+	line-height: 1.6;
+}
+table {
+	width: 100%;
+}
+img {
+	max-width: 100%;
+	height: auto;
+	object-fit: cover;
+}
+article.prose code {
+	@include jetbrains();
+	@apply rounded-sm;
+	padding: 2px 5px;
+	background-color: theme('colors.code.100');
+	margin-inline: 2px;
+	color: theme('colors.200');
+	font-weight: 550;
+}
+article.prose pre {
+	@include jetbrains();
+	font-size: 14.5px;
+}
+article.prose pre > code {
+	all: unset;
+}
+mark {
+	@include jetbrains();
+}
+
+// came with the blog skeleotn:
+
+body {
+	min-height: 100vh;
+	// overflow-y: scroll; /* https://maxschmitt.me/posts/react-prevent-layout-shift-body-scrollable/ */
+}
+
+@layer components {
+	body {
+		--brand-accent: theme('colors.highlight.warm.DEFAULT');
+		/* https://ishadeed.com/article/defensive-css */
+		overflow-wrap: break-word;
+		overflow-y: auto;
+		scrollbar-gutter: stable;
+	}
+	/* .dark > body {
+    --brand-accent: #a16207;
+  } */
+	:root {
+		accent-color: var(--brand-accent);
+	}
+	:focus-visible {
+		outline-color: var(--brand-accent);
+	}
+	::selection {
+		background-color: var(--brand-accent);
+	}
+	.dark ::selection {
+		color: #1d1d1d;
+	}
+	::marker {
+		color: var(--brand-accent);
+	}
+	:is(
+			::-webkit-calendar-picker-indicator,
+			::-webkit-clear-button,
+			::-webkit-inner-spin-button,
+			::-webkit-outer-spin-button
+		) {
+		color: var(--brand-accent);
+	}
+	/* https://css-tricks.com/two-issues-styling-the-details-element-and-how-to-solve-them/ */
+	details {
+		border: 2px solid var(--brand-accent);
+		padding: 0.5rem 1rem;
+	}
+	details > summary {
+		cursor: pointer !important;
+	}
+	details > summary > *:first-child {
+		display: inline !important;
+	}
+	img {
+		max-width: 100%;
+		object-fit: cover;
+	}
+}
+/* for the super long github links i drop */
+article.prose a {
+	word-break: break-word;
+}
+article.prose h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a {
+	text-decoration: none !important;
+}
+// article.prose h2::before {
+// 	content: '## ';
+// }
+// article.prose h3::before {
+// 	content: '### ';
+// }
+// article.prose h4::before {
+// 	content: '#### ';
+// }
+
+/* https://seek-oss.github.io/capsize/ */
+.capsize::before {
+	content: '';
+	margin-bottom: -0.098em;
+	display: table;
+}
+
+.capsize::after {
+	content: '';
+	margin-top: -0.219em;
+	display: table;
+}

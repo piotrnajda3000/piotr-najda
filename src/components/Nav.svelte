@@ -25,28 +25,27 @@
 </script>
 
 <nav
-	class="relative mx-auto flex w-full max-w-2xl items-center justify-between border-gray-200
-	bg-gray-50 bg-opacity-60 py-8 text-gray-900 dark:border-gray-700 dark:bg-gray-900
-	dark:text-gray-100 sm:pb-16"
+	class="no-bull relative my-8 flex 
+	h-[40px] w-full items-center justify-between bg-gray-50
+	bg-opacity-60  text-gray-900 dark:bg-bg dark:text-gray-100"
 >
-	<a href="#skip" class="skip-nav">Skip to content</a>
 	<MobileMenu />
-	<ul class="ml-[-0.60rem] flex">
+	<ul class="-ml-5 flex list-none space-x-6">
 		<li>
-			<NavLink href="/">Home</NavLink>
+			<NavLink href="/">home</NavLink>
 		</li>
 		<li>
-			<NavLink href="/blog">Blog</NavLink>
+			<NavLink href="/blog">blog</NavLink>
 		</li>
 		<li>
-			<NavLink href="/about">About</NavLink>
+			<NavLink href="/about">about</NavLink>
 		</li>
 		<li>
 			<a
-				class="hidden rounded-lg p-1 text-gray-800 transition-all hover:bg-yellow-200 dark:text-gray-200 dark:hover:bg-yellow-800 sm:px-3 sm:py-2 md:inline-block"
+				class="hidden text-gray-800 no-underline transition-all  dark:text-200 md:inline-block"
 				rel="external"
 				href={'/rss.xml'}
-				><span class="capsize">RSS</span>
+				><span class="capsize">rss</span>
 			</a>
 		</li>
 	</ul>
@@ -139,16 +138,3 @@
 		</button>
 	</div>
 </nav>
-
-<style>
-	.skip-nav {
-		position: absolute;
-		left: -25%;
-		top: -2rem;
-		--tw-translate-y: -3rem;
-		padding: 0.75rem 1rem;
-		transition-property: transform;
-		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-		transition-duration: 0.2s;
-	}
-</style>
