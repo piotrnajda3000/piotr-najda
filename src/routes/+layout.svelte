@@ -13,10 +13,10 @@
 	/>
 </svelte:head>
 
-<div class="flex  flex-col justify-center bg-gray-50 dark:bg-bg">
+<div class="flex  flex-col justify-center  dark:bg-bg">
 	<Nav />
 </div>
-<main class="flex flex-col justify-center bg-gray-50 dark:bg-bg">
+<main class="flex flex-col justify-center  dark:bg-bg">
 	<slot />
 </main>
 <!-- <footer>

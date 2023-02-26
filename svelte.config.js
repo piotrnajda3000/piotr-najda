@@ -54,8 +54,8 @@ const config = {
 			// https://github.com/sveltejs/kit/issues/7839#issuecomment-1328605300
 
 			// dec 2022 - moved back to true since we're using esbuild again
-			edge: true,
-		}),
+			edge: true
+		})
 		// https://kit.svelte.dev/docs/configuration#csp
 		// csp: {
 		// 	directives: {

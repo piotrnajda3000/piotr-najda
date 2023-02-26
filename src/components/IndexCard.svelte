@@ -11,24 +11,27 @@
 </script>
 
 <a
-	class="w-full text-gray-900 no-underline hover:text-yellow-600 hover:no-underline dark:text dark:hover:text-yellow-100"
+	class="w-full text-gray-900 no-underline hover:text-yellow-600
+hover:no-underline dark:text dark:hover:text-yellow-100"
 	{href}
 	><div class="w-full">
 		<div class="flex flex-col justify-between md:flex-row">
-			<h4 class="m-0 w-full flex-auto">
+			<h4 class="mb-1 w-full  flex-auto text-gray-900 dark:text-white">
 				{title.toLocaleUpperCase()}
 			</h4>
 		</div>
 		<p
-			class="m-0 break-all text-gray-600 hover:text-yellow-600 dark:text-100  dark:hover:text-yellow-100 sm:break-words"
+			class="break-all text-sm tracking-tighter text-gray-600
+		hover:text-yellow-600 dark:text-100 dark:hover:text-yellow-100 sm:break-words"
 		>
 			<slot />
 		</p>
 		<div
-			class="flex items-center justify-between gap-1 text-left text-gray-500 dark:text sm:flex-row sm:justify-start sm:gap-4 md:mb-0 md:text-sm"
+			class="flex items-center justify-between gap-1 text-left text-gray-500
+		dark:text sm:flex-row sm:justify-start sm:gap-4 md:mb-0 md:text-sm"
 		>
 			<!-- {JSON.stringify(item.readingTime)} -->
-			<p class="my-2">{stringData}</p>
+			<p class="my-2 text-xs">{stringData}</p>
 			<!-- {#if item?.readingTime}
 				<p class="hidden sm:inline-block">{item?.readingTime}</p>
 			{/if} -->

@@ -36,15 +36,24 @@
 
 <div class="flex flex-col">
 	<section>
-		<h2 class="mt-0 border-b-0 text-200">Featured Posts</h2>
-		<div class="flex flex-col gap-6 md:flex-row">
-			<FeatureCard
-				title="Welcome to my island"
-				href="/welcome-to-my-island"
-				stringData="February 2023"
-			/>
+		<h1 class="text-4xl font-normal tracking-tighter text-gray-900 dark:text-white">
+			Welcome to my island!
+		</h1>
+		<div>
+			<h2 class="mt-6 mb-4 text-3xl font-light tracking-wide text-gray-900 dark:text-white">
+				Featured Posts
+			</h2>
+			<div class="flex flex-col gap-6 md:flex-row">
+				<FeatureCard
+					title="Starting a blog"
+					href="/welcome-to-my-island"
+					stringData="February 2023"
+				/>
+			</div>
 		</div>
-		<LatestPosts {items} />
+		<div class="mt-6">
+			<LatestPosts {items} />
+		</div>
 	</section>
 	<!-- <Newsletter /> -->
 </div>

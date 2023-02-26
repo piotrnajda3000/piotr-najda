@@ -26,11 +26,11 @@
 
 <nav
 	class="no-bull relative my-8 flex 
-	h-[40px] w-full items-center justify-between bg-gray-50
-	bg-opacity-60  text-gray-900 dark:bg-bg dark:text-gray-100"
+	h-[40px] w-full items-center justify-between 
+	bg-opacity-60  text-gray-900 dark:bg-bg dark:text-gray-100 sm:dark:bg-transparent"
 >
 	<MobileMenu />
-	<ul class="-ml-5 flex list-none space-x-6">
+	<ul class="flex list-none space-x-6">
 		<li>
 			<NavLink href="/">home</NavLink>
 		</li>
@@ -40,24 +40,10 @@
 		<li>
 			<NavLink href="/about">about</NavLink>
 		</li>
-		<li>
-			<a
-				class="hidden text-gray-800 no-underline transition-all  dark:text-200 md:inline-block"
-				rel="external"
-				href={'/rss.xml'}
-				><span class="capsize">rss</span>
-			</a>
-		</li>
 	</ul>
-	<div class="flex items-center space-x-4">
+	<div class="flex items-center">
 		<!-- RSS -->
-		<!-- <a
-			class="text-gray-700 hover:bg-yellow-200 dark:text-gray-200 dark:hover:bg-yellow-800"
-			rel="external"
-			href={origin + '/rss.xml'}
-			aria-label="RSS"
-		>
-			rss
+		<a class="mr-2 text-gray-700  dark:text-200 " rel="external" href={'/rss.xml'} aria-label="RSS">
 			<svg
 				aria-hidden="true"
 				xmlns="http://www.w3.org/2000/svg"
@@ -73,11 +59,11 @@
 					d="M6 5c7.18 0 13 5.82 13 13M6 11a7 7 0 017 7m-6 0a1 1 0 11-2 0 1 1 0 012 0z"
 				/>
 			</svg>
-		</a> -->
+		</a>
 		<!-- Github -->
 		<a
-			class="rounded-lg text-gray-700 hover:bg-yellow-200 dark:text-gray-200
-			dark:hover:bg-yellow-800"
+			class="rounded-lg text-gray-700  dark:text-200
+			"
 			href={REPO_URL}
 			aria-label="GitHub source"
 		>
@@ -99,8 +85,8 @@
 		</a>
 		<button
 			aria-label="Toggle Dark Mode"
-			class="ml-1 flex h-9 w-9 items-center justify-center rounded-lg bg-yellow-400 ring-yellow-400
-			transition-all hover:ring-2 dark:bg-yellow-800"
+			class="ml-2 flex h-9 w-9 items-center justify-center 
+			rounded-full bg-yellow-300 transition-all dark:bg-[hsl(30,94%,55%)] dark:hover:bg-[hsl(30,94%,65%)]"
 			on:click={toggleDarkMode}
 		>
 			{#if isDark}
@@ -109,7 +95,7 @@
 					viewBox="0 0 24 24"
 					fill="none"
 					stroke="currentColor"
-					class="h-5 w-5 text-gray-800 dark:text-yellow-100"
+					class="h-5 w-5 text-gray-800 dark:text-text-200"
 				>
 					<path
 						stroke-linecap="round"

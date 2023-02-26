@@ -80,10 +80,10 @@
 <svelte:window on:keyup={focusSearch} />
 
 <section class="mx-auto flex w-full flex-col items-start justify-center ">
-	<h1 class=" text-black dark:text-white ">
-		{SITE_TITLE}'s blog
+	<h1 class=" text-4xl font-normal tracking-tighter text-gray-900 dark:text-white ">
+		{SITE_TITLE}'s blog <span class="inline-block -scale-x-100 text-4xl">✍🏻</span>
 	</h1>
-	<p class="text-gray-600 dark:text">
+	<p class="mt-6 mb-4 text-gray-600 dark:text">
 		In total, I've written {items.length} articles on my blog.
 	</p>
 	<div class="relative mb-3 w-full">
@@ -94,7 +94,8 @@
 			bind:this={inputEl}
 			on:focus={loadsearchFn}
 			placeholder="Hit / to search"
-			class="block w-full rounded-md border-text bg-white px-5 py-2 text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-900 dark:bg-bg-200 dark:text"
+			class="border-b-1 border-1 rounded-m block w-full rounded-md border-[1px] bg-white px-5 py-2 text-gray-900
+		dark:border-gray-900 dark:bg-bg-200 dark:text"
 		/><svg
 			class="absolute right-3 top-3 h-5 w-5 text-gray-400 dark:text"
 			xmlns="http://www.w3.org/2000/svg"
@@ -112,10 +113,12 @@
 
 	<!-- if you have multiple categories enabled -->
 	{#if POST_CATEGORIES.length > 1}
-		<div class="mt-2 mb-3 flex items-center">
-			<div class="grid grid-cols-2 rounded-md shadow-sm sm:grid-cols-2">
+		<div class="mt-2 mb-6 flex items-center">
+			<div
+				class="group/categories grid select-none grid-cols-2 rounded-md shadow-sm sm:grid-cols-2"
+			>
 				{#each POST_CATEGORIES as availableCategory}
-					<div>
+					<div class="group/category">
 						<input
 							id="category-{availableCategory}"
 							class="peer sr-only"
@@ -125,15 +128,17 @@
 						/>
 						<label
 							for="category-{availableCategory}"
-							class="inline-flex w-full
-						cursor-pointer items-center justify-between border border-gray-200
-						bg-white px-2 py-2 text-gray-500 hover:bg-gray-100
-						hover:text-gray-600 peer-checked:border-highlight-cold
-						peer-checked:text-highlight-cold dark:border-bg-300 dark:bg-bg-100
-						dark:text dark:hover:bg-bg-200 dark:hover:text-gray-300
-						dark:peer-checked:text-highlight-cold"
+							class="inline-flex w-full cursor-pointer items-center
+						space-x-2  border border-gray-200 bg-white
+						px-2  py-2 text-gray-500 hover:bg-gray-100 hover:text-gray-600
+						group-first/category:rounded-l-md group-last/category:rounded-r-md group-last/category:border-l-transparent
+						 peer-checked:text-highlight-warm dark:border-bg-300
+						dark:bg-bg-100 dark:text dark:hover:bg-bg-200
+						dark:hover:text-gray-300 dark:peer-checked:text-highlight-warm
+						"
 						>
-							{availableCategory}
+							<span>{availableCategory}</span>
+							<span>{availableCategory === 'Essay' ? '📖' : '📑'}</span>
 						</label>
 					</div>
 				{/each}
@@ -143,11 +148,11 @@
 
 	<!-- you can hardcode yourmost popular posts or pinned post here if you wish -->
 	{#if !$search && !$selectedCategories?.length}
-		<h3 class="mb-3 mt-0 text-black dark:text-200">All Posts</h3>
+		<h3 class="mb-4 text-3xl font-light tracking-wide text-gray-900 dark:text-white">All Posts</h3>
 	{/if}
 
 	{#if list?.length}
-		<ul class="-ml-5 list-none">
+		<ul class="list-disc space-y-4 px-5">
 			{#each list as item}
 				<li class="text-lg">
 					<!-- <code class="mr-4">{item.data.date}</code> -->
@@ -186,6 +191,15 @@
 		</div>
 		<button class="bg-slate-500 p-2" on:click={() => ($search = '')}>Clear your search</button>
 	{:else}
-		<div class="prose dark:prose-invert ">No blogposts found!</div>
+		<div class="prose dark:prose-invert ">No blogposts found</div>
 	{/if}
 </section>
+
+<style>
+	/* .categories label {
+		border: 1px solid red;
+	}
+	.categories div:last-child label {
+		border-left: 0;
+	} */
+</style>

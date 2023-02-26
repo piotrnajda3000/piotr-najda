@@ -2,7 +2,8 @@
 	import { MY_TWITTER_HANDLE, SITE_URL } from '$lib/siteConfig';
 	// import Comments from '../../components/Comments.svelte';
 
-	// import 'prism-themes/themes/prism-shades-of-purple.min.css';
+	// import 'prism-themes/themes/prism-vsc-dark-plus.min.css';
+	import 'prism-themes/themes/prism-night-owl.min.css';
 	import Newsletter from '../../components/Newsletter.svelte';
 	import Reactions from '../../components/Reactions.svelte';
 	import LatestPosts from '../../components/LatestPosts.svelte';
@@ -72,10 +73,10 @@
 
 <article
 	use:toc={{ store: tocStore, anchor: false, observe: true, selector: ':where(h1, h2, h3)' }}
-	class="swyxcontent prose mx-auto mb-32 w-full max-w-none items-start
-justify-center  dark:prose-invert "
+	class="swyxcontent prose mx-auto mb-32 w-full max-w-none
+items-start justify-center  dark:prose-invert "
 >
-	<h1 class="mt-3 mb-0 text-center text-4xl text-black dark:text-white">
+	<h1 class="mt-3 mb-0 text-center text-black dark:text-white">
 		{json.title}
 	</h1>
 	<div class="flex w-full justify-between sm:items-start md:flex-row md:items-center">
@@ -91,7 +92,7 @@ justify-center  dark:prose-invert "
 		</p>
 	</div>
 	<div
-		class="gradient my-2 -mx-4 flex h-1 w-[95vw] max-w-[611px] 
+		class="gradient-light dark:gradient my-2 -mx-4 flex h-1 w-[95vw] max-w-[611px] 
 	sm:mx-0"
 	/>
 	{@html json.content}
@@ -137,21 +138,6 @@ justify-center  dark:prose-invert "
 
 <style>
 	/* https://ryanmulligan.dev/blog/layout-breakouts/ */
-	.gradient {
-		background-image: linear-gradient(
-			90deg,
-			hsl(240deg 94% 53%) 0%,
-			hsl(282deg 100% 43%) 21%,
-			hsl(306deg 100% 41%) 30%,
-			hsl(322deg 100% 47%) 39%,
-			hsl(331deg 100% 50%) 46%,
-			hsl(338deg 100% 50%) 54%,
-			hsl(348deg 100% 55%) 61%,
-			hsl(11deg 100% 60%) 69%,
-			hsl(24deg 100% 56%) 79%,
-			hsl(34deg 94% 53%) 100%
-		);
-	}
 
 	.swyxcontent {
 		--gap: clamp(1rem, 6vw, 3rem);
@@ -190,14 +176,22 @@ justify-center  dark:prose-invert "
 	}
 
 	article :global(pre) {
-		grid-column: feature;
-		margin-left: -1rem;
-		margin-right: -1rem;
+		/* grid-column: feature; */
+		/* margin-left: -1rem; */
+		/* margin-right: -1rem; */
 	}
 
 	/* hacky thing because otherwise the summary>pre causes overflow */
 	article :global(summary > pre) {
 		max-width: 90vw;
+	}
+
+	article :global(.token-italic) {
+		font-style: normal;
+	}
+
+	article :global(.token) {
+		font-style: normal;
 	}
 
 	article :global(.popout) {

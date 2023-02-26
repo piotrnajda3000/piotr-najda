@@ -60,7 +60,7 @@
 	</button>
 	{#if isOpen}
 		<ul
-			class="menu absolute flex list-none flex-col bg-gray-50  text-2xl
+			class="menu absolute flex list-none flex-col   text-2xl
 		uppercase dark:bg-bg"
 			class:menuRendered={isMenuRendered}
 		>

@@ -57,7 +57,8 @@ img {
 }
 article.prose code {
 	@include jetbrains();
-	@apply rounded-sm;
+	@apply rounded-md;
+	font-size: 12px;
 	padding: 2px 5px;
 	background-color: theme('colors.code.100');
 	margin-inline: 2px;
@@ -71,9 +72,6 @@ article.prose pre {
 article.prose pre > code {
 	all: unset;
 }
-mark {
-	@include jetbrains();
-}
 
 // came with the blog skeleotn:
 
@@ -84,7 +82,7 @@ body {
 
 @layer components {
 	body {
-		--brand-accent: theme('colors.highlight.warm.DEFAULT');
+		--brand-accent: hsl(30, 94%, 55%);
 		/* https://ishadeed.com/article/defensive-css */
 		overflow-wrap: break-word;
 		overflow-y: auto;
@@ -107,6 +105,9 @@ body {
 	}
 	::marker {
 		color: var(--brand-accent);
+	}
+	input:focus {
+		outline-style: solid;
 	}
 	:is(
 			::-webkit-calendar-picker-indicator,
@@ -165,4 +166,74 @@ h6 a {
 	content: '';
 	margin-top: -0.219em;
 	display: table;
+}
+
+@layer utilities {
+	.gradient {
+		background-image: linear-gradient(
+			90deg,
+			hsl(192deg 95% 78%) 0%,
+			hsl(193deg 100% 50%) 19%,
+			hsl(202deg 100% 50%) 27%,
+			hsl(212deg 100% 50%) 34%,
+			hsl(264deg 79% 58%) 41%,
+			hsl(317deg 100% 47%) 47%,
+			hsl(344deg 100% 59%) 53%,
+			hsl(21deg 100% 59%) 59%,
+			hsl(27deg 95% 54%) 66%,
+			hsl(21deg 95% 53%) 73%,
+			hsl(13deg 95% 54%) 81%,
+			hsl(0deg 94% 55%) 100%
+		);
+	}
+	.gradient-light {
+		background-image: linear-gradient(
+			90deg,
+			hsl(217deg 94% 58%) 0%,
+			hsl(218deg 96% 56%) 19%,
+			hsl(220deg 96% 54%) 27%,
+			hsl(223deg 95% 54%) 34%,
+			hsl(264deg 79% 58%) 41%,
+			hsl(317deg 100% 47%) 47%,
+			hsl(344deg 100% 59%) 53%,
+			hsl(21deg 100% 59%) 59%,
+			hsl(27deg 95% 54%) 66%,
+			hsl(21deg 95% 53%) 73%,
+			hsl(13deg 95% 54%) 81%,
+			hsl(0deg 94% 55%) 100%
+		);
+	}
+
+	.gradient-45 {
+		background-image: linear-gradient(
+			45deg,
+			hsl(192deg 95% 78%) 0%,
+			hsl(194deg 100% 61%) 18%,
+			hsl(197deg 100% 50%) 25%,
+			hsl(204deg 100% 50%) 32%,
+			hsl(212deg 100% 50%) 37%,
+			hsl(227deg 94% 55%) 43%,
+			hsl(292deg 71% 48%) 49%,
+			hsl(321deg 100% 48%) 55%,
+			hsl(339deg 100% 56%) 63%,
+			hsl(9deg 100% 63%) 73%,
+			hsl(30deg 94% 55%) 99%
+		);
+	}
+
+	.gradient-light-45 {
+		background-image: linear-gradient(
+			45deg,
+			hsl(30deg 94% 55%) 0%,
+			hsl(18deg 100% 62%) 11%,
+			hsl(4deg 100% 67%) 22%,
+			hsl(348deg 100% 67%) 33%,
+			hsl(336deg 100% 65%) 44%,
+			hsl(326deg 93% 64%) 56%,
+			hsl(309deg 67% 61%) 67%,
+			hsl(281deg 67% 64%) 78%,
+			hsl(250deg 82% 69%) 89%,
+			hsl(217deg 94% 58%) 100%
+		);
+	}
 }
